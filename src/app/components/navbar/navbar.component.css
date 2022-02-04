@@ -1,0 +1,355 @@
+/*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+::ng-deep #header {
+    height: 80px;
+    transition: all 0.5s;
+    z-index: 997;
+    transition: all 0.5s;
+    background: var(--primaryVariant);
+    opacity: 0.95;
+}
+
+::ng-deep #header.header-transparent {
+    background: transparent;
+}
+
+::ng-deep #header.header-scrolled {
+    background: var(--primaryVariant);
+    opacity: 0.95;
+    height: 60px;
+}
+
+::ng-deep #header .logo h1 {
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+}
+
+::ng-deep #header .logo h1 a, #header .logo h1 a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+::ng-deep #header .logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 40px;
+}
+
+/*--------------------------------------------------------------
+  # Back to top button
+  --------------------------------------------------------------*/
+::ng-deep .back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #1acc8d;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+::ng-deep .back-to-top i {
+    font-size: 28px;
+    color: #fff;
+    line-height: 0;
+}
+
+::ng-deep .back-to-top:hover {
+    background: #2be4a2;
+    color: #fff;
+}
+
+::ng-deep .back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------
+  # Navigation Menu
+  --------------------------------------------------------------*/
+/**
+  * Desktop Navigation 
+  */
+::ng-deep .navbar {
+    padding: 0;
+}
+
+::ng-deep .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+::ng-deep .navbar li {
+    position: relative;
+}
+
+::ng-deep .navbar a, .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+::ng-deep .navbar a i, .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+}
+
+::ng-deep .navbar>ul>li>a:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 3px;
+    left: 30px;
+    background-color: var(--primary);
+    visibility: hidden;
+    width: 0px;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+::ng-deep .navbar a:hover:before, .navbar li:hover>a:before, .navbar .active:before {
+    visibility: visible;
+    width: 25px;
+}
+
+::ng-deep .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover>a {
+    color: #fff;
+}
+
+::ng-deep .navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 30px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+::ng-deep .navbar .dropdown ul li {
+    min-width: 200px;
+}
+
+::ng-deep .navbar .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    color: #01036f;
+}
+
+::ng-deep .navbar .dropdown ul a i {
+    font-size: 12px;
+}
+
+::ng-deep .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover>a {
+    color: #1acc8d;
+}
+
+::ng-deep .navbar .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+}
+
+::ng-deep .navbar .dropdown .dropdown ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+}
+
+::ng-deep .navbar .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+}
+
+@media (max-width: 1366px) {
+    ::ng-deep .navbar .dropdown .dropdown ul {
+        left: -90%;
+    }
+
+    ::ng-deep .navbar .dropdown .dropdown:hover>ul {
+        left: -100%;
+    }
+}
+
+/**
+  * Mobile Navigation 
+  */
+::ng-deep .mobile-nav-toggle {
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+    ::ng-deep .mobile-nav-toggle {
+        display: block;
+    }
+
+    ::ng-deep .navbar ul {
+        display: none;
+    }
+}
+
+::ng-deep .navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: var(--primaryVariant);
+    transition: 0.3s;
+    z-index: 999;
+}
+
+::ng-deep .navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+::ng-deep .navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: 0.3s;
+}
+
+::ng-deep .navbar-mobile>ul>li>a:before {
+    left: 20px;
+}
+
+::ng-deep .navbar-mobile a, .navbar-mobile a:focus {
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #0205a1;
+}
+
+::ng-deep .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover>a {
+    color: #3f43fd;
+}
+
+::ng-deep .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
+    margin: 15px;
+}
+
+::ng-deep .navbar-mobile .dropdown ul {
+    position: static;
+    display: none;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+::ng-deep .navbar-mobile .dropdown ul li {
+    min-width: 200px;
+}
+
+::ng-deep .navbar-mobile .dropdown ul a {
+    padding: 10px 20px;
+}
+
+::ng-deep .navbar-mobile .dropdown ul a i {
+    font-size: 12px;
+}
+
+::ng-deep .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover>a {
+    color: #1acc8d;
+}
+
+::ng-deep .navbar-mobile .dropdown>.dropdown-active {
+    display: block;
+}
+
+
+
+/*--------------------------------------------------------------
+  # Preloader
+  --------------------------------------------------------------*/
+::ng-deep #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #fff;
+}
+
+::ng-deep #preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #1acc8d;
+    border-top-color: #d2f9eb;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: animate-preloader 1s linear infinite;
+    animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
